@@ -20,7 +20,7 @@ function ChatFooter({
   };
 
   return (
-    <HStack horizontal="leading" gap="2" vertical="center" padding="2">
+    <HStack horizontal="leading" gap={2} vertical="center" padding={2}>
       <div className="bg-neutral-200 rounded-full flex items-center justify-center w-[36px] h-[36px] shrink-0">
         <PlusIcon size={18} className="text-neutral-500" />
       </div>

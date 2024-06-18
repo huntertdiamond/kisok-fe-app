@@ -56,6 +56,7 @@ function PlaceholderTokenLineChart({
       <HStack gap={4} horizontal="between">
         {Object.values(TimeframeForChart).map((val) => (
           <TabDisplay
+            key={val}
             isSelected={duration === val}
             setIsSelected={handleDurationChange}
             textToDisplay={val}

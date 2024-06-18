@@ -10,6 +10,8 @@ function chainIdToReservoirEndpoint(chainId: ChainIdOption): string {
       return "https://api-zora.reservoir.tools";
     case 42161:
       return "https://api-arbitrum.reservoir.tools";
+    default:
+      return "https://api.reservoir.tools";
   }
 }
 

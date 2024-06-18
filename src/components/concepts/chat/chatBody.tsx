@@ -9,7 +9,7 @@ function ChatBody({ messages }: { messages: MessageForChat[] }) {
   const viewerFid = 240865;
 
   return (
-    <VStack padding="2">
+    <VStack padding={2}>
       <ol className="chat">
         {messages.map((message, i) => {
           const didSend = viewerFid === message.senderFid;
@@ -30,17 +30,15 @@ function ChatBody({ messages }: { messages: MessageForChat[] }) {
               className={cn("flex", didSend ? "justify-end" : "justify-start")}
             >
               {!didSend && (
-                <div className="flex items-end justify-end mr-2 z-30 shrink-0 mb-4">
-                  <Image
-                    src={message.pfpUrl}
-                    alt={message.username}
-                    width={20}
-                    height={20}
-                    className="rounded-full h-[28px] w-[28px] object-cover"
-                  />
-                </div>
+                <Image
+                  src={message.pfpUrl}
+                  alt={message.username}
+                  width={20}
+                  height={20}
+                  className="rounded-full h-[28px] w-[28px] object-cover"
+                />
               )}
-              <div className="flex flex-col gap-0">
+              <VStack horizontal="leading" vertical="center" gap={0}>
                 {!didSend && (
                   <span className="ml-2 mb-1 text-sm">{message.username}</span>
                 )}
@@ -52,7 +50,7 @@ function ChatBody({ messages }: { messages: MessageForChat[] }) {
                     {message.text}
                   </Typography>
                 </div>
-              </div>
+              </VStack>
             </li>
           );
         })}

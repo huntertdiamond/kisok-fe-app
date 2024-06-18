@@ -95,10 +95,10 @@ function OnchainMemoryContent() {
           </HStack>
         </FancyCard>
         <Typography variant="body" className="leading-16 text-center">
-          You should've known better. You know the founder has a $100M loan
+          {`You should've known better. You know the founder has a $100M loan
           against CRV. You know that he has 20% of the outstanding supply. Why
           did you do this to yourself? If you just stayed in ETH you'd be
-          euphoric, but you didn't. What a shame
+          euphoric, but you didn't. What a shame`}
         </Typography>
       </VStack>
     </VStack>

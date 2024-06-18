@@ -48,9 +48,9 @@ export default function Home() {
               <div className="h-full w-full bg-kioskBlue-500">f</div>
               <Typography variant="h1">Feed Demo</Typography>
               <Typography secondary variant="body" className="leading-16">
-                An interpretation of a user's feed on kiosk. It needs a lot more
+                {`An interpretation of a user's feed on kiosk. It needs a lot more
                 work, but there are some interesting interactions that could be
-                explored further.
+                explored further.`}
               </Typography>
             </VStack>
           </FancyCard>

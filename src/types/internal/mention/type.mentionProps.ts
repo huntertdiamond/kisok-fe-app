@@ -5,7 +5,7 @@ import { TextAreaProps } from "rc-textarea";
 import {
   filterOption as defaultFilterOption,
   validateSearch as defaultValidateSearch,
-} from "@/lib/customMention";
+} from "@/lib/castCreation";
 import { OptionProps } from "./type.optionProps";
 import { DataDrivenOptionProps } from "./type.dataDrivenOptionProps";
 import { CommonInputProps } from "rc-input/lib/interface";

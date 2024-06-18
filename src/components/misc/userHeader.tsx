@@ -51,7 +51,7 @@ const UserHeader = React.forwardRef<HTMLDivElement, UserHeaderProps>(
         className={cn("mb-0.5", className)}
         {...props}
       >
-        <HStack vertical="center" horizontal="leading" gap="1" className="">
+        <HStack vertical="center" horizontal="leading" gap={1} className="">
           <img
             src={user.pfpUrl}
             alt="user pfp"
@@ -65,7 +65,6 @@ const UserHeader = React.forwardRef<HTMLDivElement, UserHeaderProps>(
           <VStack
             horizontal="leading"
             vertical="top"
-            gap="0"
             className={spacingVariants[variant]}
           >
             <HStack vertical="center" horizontal="leading">
