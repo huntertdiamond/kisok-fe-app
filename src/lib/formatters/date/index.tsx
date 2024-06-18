@@ -1,0 +1,1 @@
+export { returnDateAsTimeAgoString } from "./dateAsTimeAgo";

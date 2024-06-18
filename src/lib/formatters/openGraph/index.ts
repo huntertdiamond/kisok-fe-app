@@ -1,0 +1,1 @@
+export { parseOpenGraphTypeFromUrl } from "./parseUrlForOpenGraphType";

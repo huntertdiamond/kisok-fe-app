@@ -1,0 +1,302 @@
+import { InternalFarcasterCast, PlatformOptions } from "@/types/internal/feed";
+import { ndUserObject, lghtUserObject } from "./staticFcUsers";
+import { placeholderLightChannel } from "./staticChannels";
+import { higherStaticBaseToken } from "./baseTokens";
+
+const placeholderCastWithMention: InternalFarcasterCast = {
+  postId: "4",
+  postedBy: ndUserObject,
+  platform: PlatformOptions.Farcaster,
+  castType: "default",
+  hash: "0x076d6fec313128f1da88a1699bae64c0b0fcb801",
+  threadHash: "0x076d6fec313128f1da88a1699bae64c0b0fcb801",
+  parentHash: null,
+
+  parent_url: "https://warpcast.com/~/channel/light",
+  text: "@lght.eth on the “memecoin dao” thesis, how do u think about Nouns? \n\nSpecifically for the goal of proliferation, would Nouns be better off operating with a token in the same way as $higher? Seems like the token dao might be better suited for that goal.\n\nOr do you see cases where the existing model could be better?",
+  datePosted: new Date("2024-05-22T22:34:14.000Z"),
+  likeCount: 2,
+  recastCount: 0,
+  replyCount: 0,
+  embeds: [],
+  mentionedUsers: [lghtUserObject],
+  channel: placeholderLightChannel,
+  mentionedTokens: [higherStaticBaseToken],
+  parsedText: {
+    text: "",
+    links: [],
+    mentionedChannels: [],
+    mentionedUsers: [],
+    mentionedTokens: [],
+  },
+  mentionedChannels: [],
+  quoteCast: null,
+};
+const placeholderCastWithMintFrame: InternalFarcasterCast = {
+  postId: "ee61b2ab-df73-46be-8419-27cb36128b00",
+  postedBy: {
+    farcasterId: 218753,
+    username: "zora-feed",
+    displayName: "zora feed",
+    bio: "imagination live stream.\njoin https://warpcast.com/~/channel/zora for more",
+    pfpUrl: "https://i.imgur.com/WOheRA7.jpg",
+    isPowerUser: true,
+    isKioskUser: false,
+    preferredEthereumAddress: "0x03e7980bc634b52b9d616c58bc436431f3d4ff0f",
+    custodyAddress: "0x03da276700d5da84783c6636a17deb8c74dee530",
+    noOfFollowers: 3538,
+    noOfFollowing: 101,
+  },
+  datePosted: new Date("2024-06-12T17:25:02.000Z"),
+  platform: PlatformOptions.Farcaster,
+  castType: "frame",
+  hash: "0x765ae3387858a39fc7e01e4e49937edbc41e0625",
+  threadHash: "0x765ae3387858a39fc7e01e4e49937edbc41e0625",
+  parentHash: null,
+  parent_url: null,
+  text: '✻ "PesteBoy (SantaPeste Kid)" by VelcrumWare',
+  likeCount: 0,
+  recastCount: 0,
+  replyCount: 0,
+  embeds: [
+    {
+      embedType: "zora",
+      url: "https://zora.co/collect/zora:0x7afdbeafabd421483108c869d1520718916cd810/4?referrer=0x03e7980Bc634b52b9d616c58bC436431f3d4Ff0F",
+    },
+  ],
+  mentionedUsers: [],
+  frame: [
+    {
+      buttons: [
+        {
+          action_type: "mint",
+          index: 1,
+          target: "eip155:7777777:0x7afdbeafabd421483108c869d1520718916cd810:4",
+          title: "Mint",
+        },
+      ],
+      frames_url:
+        "https://zora.co/collect/zora:0x7afdbeafabd421483108c869d1520718916cd810/4?referrer=0x03e7980Bc634b52b9d616c58bC436431f3d4Ff0F",
+      image:
+        "https://zora.co/api/thumbnail/fc/7777777/0x7afdbeafabd421483108c869d1520718916cd810/4",
+      image_aspect_ratio: "1:1",
+      input: {},
+      state: {},
+      title: "PesteBoy (SantaPeste Kid)",
+      version: "vNext",
+    },
+  ],
+  parsedText: {
+    text: '✻ "PesteBoy (SantaPeste Kid)" by VelcrumWare',
+    links: [],
+    mentionedChannels: [],
+    mentionedUsers: [],
+    mentionedTokens: [],
+  },
+  mentionedChannels: [],
+  mentionedTokens: [],
+  quoteCast: null,
+  channel: null,
+};
+
+const placeholderCastWithQuote: InternalFarcasterCast = {
+  postId: "1fccc260-1a52-4f16-9b41-7dcb7ba49eef",
+  postedBy: {
+    farcasterId: 426,
+    username: "brianjckim",
+    displayName: "Brian Kim",
+    bio: "/moments /brianjckim and /cookies",
+    pfpUrl:
+      "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/33afdb28-bc8b-46d4-8780-ed33a768c200/rectcrop3",
+    isPowerUser: true,
+    isKioskUser: false,
+    preferredEthereumAddress: "0xa35156ca4294c13fe256b10091f3d6595e3bf7d7",
+    custodyAddress: "0xa0d3e165c60ae136ab1189c99f0933298267dc5d",
+    noOfFollowers: 99965,
+    noOfFollowing: 793,
+  },
+  datePosted: new Date("2024-06-12T17:05:39.000Z"),
+  platform: PlatformOptions.Farcaster,
+  castType: "default",
+  hash: "0x53d652be8764b944a63a2b9b3498e43c15422fe7",
+  threadHash: "0x53d652be8764b944a63a2b9b3498e43c15422fe7",
+  parentHash: null,
+  parent_url: "https://warpcast.com/~/channel/brianjckim",
+  text: "i don’t know anything either",
+  likeCount: 5,
+  recastCount: 0,
+  replyCount: 2,
+  embeds: [
+    {
+      embedType: "quoteCast",
+      postingFid: 16831,
+      hash: "0xb6e0ca7f2bcc4d9af6d4e4dbf3fac2f3eda1b484",
+      url: "https://warpcast.com/~/channel/brianjckim/16831",
+    },
+  ],
+  mentionedUsers: [],
+  parsedText: {
+    text: "i don’t know anything either",
+    links: [],
+    mentionedChannels: [],
+    mentionedUsers: [],
+    mentionedTokens: [],
+  },
+  mentionedChannels: [],
+  mentionedTokens: [],
+  channel: {
+    channelId: "brianjckim",
+    channelName: "brianjckim",
+    channelDescription: "brianjckim.com",
+    chanelNorms: "1. Be Cool \n\n 2.Don't be not cool.",
+    channelPfp: "https://i.imgur.com/GmusZvv.jpg",
+    channelBanner: "https://kiosk.app/kiosk-banner.svg",
+    followerCount: 1546,
+    hostFids: [426],
+    ownerFid: 426,
+    createdAt: 1703096109,
+    internalColor: "kioskBlue",
+  },
+  quoteCast: null,
+};
+
+const placeholderCastWithChannel: InternalFarcasterCast = {
+  postId: "2be8dcc7-5175-4bdd-a18d-215388d3db0d",
+  postedBy: {
+    farcasterId: 262450,
+    username: "cooprecs",
+    displayName: "Coop Records",
+    bio: "Onchain Record Label",
+    pfpUrl: "https://i.imgur.com/YZRdO5m.jpg",
+    isPowerUser: true,
+    isKioskUser: false,
+    preferredEthereumAddress: "0x512b55b00d744fc2edb8474f223a7498c3e5a7ce",
+    custodyAddress: "0xa799a1746f7f81e7de2ec41793486a4a74a08b32",
+    noOfFollowers: 19728,
+    noOfFollowing: 38,
+  },
+  datePosted: new Date("2024-06-12T16:25:50.000Z"),
+  platform: PlatformOptions.Farcaster,
+  castType: "default",
+  hash: "0x5c45eeb981a6b3d9b40e6308868910dc2244f0ab",
+  threadHash: "0x5c45eeb981a6b3d9b40e6308868910dc2244f0ab",
+  parentHash: null,
+  parent_url: "https://warpcast.com/~/channel/coop-recs",
+  text: "What’s your favorite Coop Records song and why?\n\nRain 4000 $DEGEN (And we’ll tip NOTES on @sonatatips!)\n This is hunter speaking, this link's thumbnail was broken, so here is what I'm listening to",
+  likeCount: 18,
+  recastCount: 6,
+  replyCount: 9,
+  embeds: [
+    {
+      embedType: "unknown",
+      url: "https://www.youtube.com/watch?v=F5WWyyYG018",
+    },
+  ],
+  mentionedUsers: [
+    {
+      farcasterId: 503116,
+      username: "sonatatips",
+      displayName: "Sonata",
+      bio: "Music on Farcaster - sonata.tips - /sonata",
+      pfpUrl:
+        "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/448cc2d6-f46d-4a59-4aad-583753c39600/original",
+      isPowerUser: true,
+      isKioskUser: false,
+      custodyAddress: "0x9e5ef6e7536361359ac7faaa06d69d520c2451a7",
+      preferredEthereumAddress: "0x9e5ef6e7536361359ac7faaa06d69d520c2451a7",
+      noOfFollowers: 4291,
+      noOfFollowing: 5,
+    },
+  ],
+  parsedText: {
+    text: "What’s your favorite Coop Records song and why?\n\nRain 4000 $DEGEN (And we’ll tip NOTES on @sonatatips!)\n This is hunter speaking, this link's thumbnail was broken, so here is what I'm listening to",
+    links: [
+      {
+        index: 105,
+        value:
+          "https://www.sound.xyz/playlist/63548770-2dc3-460c-9421-6239aac97d8d",
+      },
+    ],
+    mentionedChannels: [],
+    mentionedUsers: [
+      {
+        index: 90,
+        value: "@sonatatips",
+      },
+    ],
+    mentionedTokens: [
+      {
+        index: 59,
+        value: "$DEGEN",
+      },
+    ],
+  },
+  mentionedChannels: [],
+  mentionedTokens: [
+    {
+      name: "Degen",
+      image:
+        "https://dd.dexscreener.com/ds-data/tokens/base/0x4ed4e862860bed51a9570b96d89af5e1b0efefed.png?size=lg&key=e17c44",
+      ticker: "DEGEN",
+      address: "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed",
+      currentPrice: 0.022,
+      oneDayPriceChange: -1.94,
+      chainId: 8453,
+      description: "heyu",
+      internalColor: "kioskPurple",
+      dexScreenerEndpoint: "/base/0xc9034c3E7F58003E6ae0C8438e7c8f4598d5ACAA",
+    },
+  ],
+  channel: {
+    channelId: "coop-recs",
+    channelName: "Coop Records",
+    channelDescription:
+      "Coop Records - an onchain record label. \n\nSub to get every song airdropped directly to your wallet!\n\nhttps://hypersub.withfabric.xyz/collection/coop-records-club-izh68wci0c8w",
+    chanelNorms: "1. Be Cool \n\n 2.Don't be not cool.",
+    channelPfp: "https://i.imgur.com/fQN9Jr6.gif",
+    channelBanner: "https://kiosk.app/kiosk-banner.svg",
+    followerCount: 18390,
+    hostFids: [262450, 206, 196378, 5197, 368422],
+    ownerFid: 262450,
+    createdAt: 1707174159,
+    internalColor: "kioskBlue",
+  },
+  quoteCast: null,
+};
+
+const staticLightChannelCast: InternalFarcasterCast = {
+  postId: "4",
+  postedBy: lghtUserObject,
+  platform: PlatformOptions.Farcaster,
+  castType: "default",
+  hash: "0x076d6fec313128f1da88a1699bae64c0b0fcb801",
+  threadHash: "0x076d6fec313128f1da88a1699bae64c0b0fcb801",
+  parentHash: null,
+
+  parent_url: "https://warpcast.com/~/channel/light",
+  text: "seems we are approaching the 'this is cringe actually' part of the growth cycle - unironically bullish  \n will be interesting to see what comes of it",
+  datePosted: new Date("2024-05-22T22:34:14.000Z"),
+  likeCount: 2,
+  recastCount: 0,
+  replyCount: 0,
+  embeds: [],
+  mentionedUsers: [],
+  channel: placeholderLightChannel,
+  mentionedTokens: [],
+  parsedText: {
+    text: "",
+    links: [],
+    mentionedChannels: [],
+    mentionedUsers: [],
+    mentionedTokens: [],
+  },
+  mentionedChannels: [],
+  quoteCast: null,
+};
+export {
+  placeholderCastWithMention,
+  placeholderCastWithMintFrame,
+  placeholderCastWithQuote,
+  placeholderCastWithChannel,
+  staticLightChannelCast,
+};
