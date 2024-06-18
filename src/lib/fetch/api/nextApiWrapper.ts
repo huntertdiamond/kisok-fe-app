@@ -20,7 +20,6 @@ async function fetchOurNextApi<T extends OurNextApiEndpoints>(
     const response = await axios.get<NextApiResponseMap[T]>(fullUrl);
     return response.data;
   } catch (error) {
-    //@ts-ignore
     throw new Error(`Error fetching ${reqType}`);
   }
 }
