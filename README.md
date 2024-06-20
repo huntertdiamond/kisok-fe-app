@@ -165,7 +165,7 @@ function CreateCastInput() {
 
 This component handles:
 
-- Mentioning and Highlighting: The `<NewCastInput/>` component renders entered text and gives users the option to mention a user (trigger is @), a token (trigger is $), and mention a channel (trigger is /). All mentions are highlighted inline
+- Mentioning and Highlighting: The `<NewCastInput/>` component renders entered text and gives users the option to mention a user (trigger is @), a token (trigger is $), and a channel (trigger is /). All mentions are highlighted inline
 - Autocomplete for Mentioned Users: Queries for user autocompletion when mentioning users.
 - Image Upload: Handles uploading images through the `<CastImagesContainer/>` component.
 - Embed Links: Auto Detects a pasted or entered link and displays it in the `<NewCastEmbedRow>`
