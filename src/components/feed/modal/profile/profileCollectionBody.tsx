@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, VStack } from "@/components/elements";
 import { useQuery } from "@tanstack/react-query";
-import { fetchOurNextApi } from "@/lib/fetch/api";
+import { fetchApiData } from "@/lib/fetch/api";
 import { BaseNft } from "@/types/internal/nft";
 import { CollctionSkeleton } from "@/components/elements/loading";
 
@@ -18,7 +18,7 @@ function ProfileCollectionBody({
   } = useQuery({
     queryKey: ["userCollection", userAddresses],
     queryFn: () =>
-      fetchOurNextApi("owned-nfts", {
+      fetchApiData("owned-nfts", {
         userAddress: userAddresses[0],
       }),
   });
@@ -32,7 +32,7 @@ function ProfileCollectionBody({
       {userCollectionData ? (
         <div>
           <Typography variant="body" className="text-kioskRed-400 my-1">
-            I am not happy with this {":("} Definitely deserves more love.
+            I am not happy with this.. Definitely deserves more
           </Typography>
           <div className="grid grid-cols-2 gap-2">
             {userCollectionData.map((token) => (

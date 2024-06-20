@@ -15,7 +15,7 @@ function ChannelCollectionDisplay() {
           {"It's so empty here"}
         </Typography>
         <Typography variant="body" className="text-xs" secondary>
-          {"I'm sorry for butchering your kiki, I thought it was funny"}
+          {"I'm sorry for butchering your kiki"}
         </Typography>
       </VStack>
     </VStack>

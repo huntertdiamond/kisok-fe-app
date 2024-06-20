@@ -1,6 +1,6 @@
 import { APP_URL } from "../constants/environment";
 import { FarcasterChannel } from "@/types/internal/farcaster";
-import { fetchOurNextApi } from "./api";
+import { fetchApiData } from "./api";
 async function fetchFarcasterChannel(
   channelIdInput: string
 ): Promise<FarcasterChannel | undefined> {
@@ -27,7 +27,7 @@ async function fetchFarcasterChannel(
 
   if (channelId) {
     try {
-      const channel = await fetchOurNextApi("farcaster-channel", {
+      const channel = await fetchApiData("farcaster-channel", {
         channelId,
       });
       return channel;

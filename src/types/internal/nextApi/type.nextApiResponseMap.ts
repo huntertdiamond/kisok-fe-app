@@ -8,6 +8,7 @@ import { InternalFarcasterCast, ParentPostObject } from "../feed";
 import { OpenGraphParent } from "../opengraph";
 import { DefaultToken } from "../tokens";
 import { BaseNft, ExtendedNft } from "../nft";
+import { Tweet } from "react-tweet/api";
 
 type NextApiResponseMap = {
   "farcaster-channel": FarcasterChannel;
@@ -20,6 +21,7 @@ type NextApiResponseMap = {
   "tokens-by-ticker": DefaultToken[];
   "mirror-content": MirrorContentFormatted;
   "zora-data": ExtendedNft;
+  tweet: Tweet;
 };
 
 export type { NextApiResponseMap };

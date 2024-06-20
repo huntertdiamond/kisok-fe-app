@@ -15,6 +15,7 @@ function MintModalHeader({
   token: ExtendedNft;
   tokenAddress: `0x${string}`;
 }) {
+  //
   const { modalHeight } = useFeedModalContext();
   const { userFrameInteraction } = useFeedActionContext();
 
@@ -50,10 +51,10 @@ function MintModalHeader({
           <img
             src={token.creator.pfpUrl}
             alt="creator pfp"
-            className="rounded-full h-10 w-10 object-cover"
+            className="rounded-full h-11 w-11 object-cover"
           />
 
-          <VStack horizontal="leading" vertical="center" className="-space-y-1">
+          <VStack horizontal="leading" vertical="center" gap={1}>
             <Typography variant="h2">{displayName}</Typography>
             <Typography variant="body" secondary>
               {username}

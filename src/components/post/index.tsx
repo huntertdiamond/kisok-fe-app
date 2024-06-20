@@ -38,7 +38,7 @@ const FeedPost: React.FC<FeedPostContainerProps> = ({
       case "mirror":
         return <MirrorPostContainer post={post} />;
       case "farcaster":
-        return <FarcasterPostContainer post={post} />;
+        return <FarcasterPostContainer post={post} largeEmbed={largeEmbed} />;
       case "onChain":
         return <OnchainPostContainer post={post} />;
       default:

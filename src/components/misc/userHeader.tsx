@@ -58,7 +58,7 @@ const UserHeader = React.forwardRef<HTMLDivElement, UserHeaderProps>(
             width={80}
             height={80}
             className={cn(
-              "aspect:square rounded-full shrink-none",
+              "aspect:square rounded-full shrink-0",
               pfpImageVariants[variant]
             )}
           />
@@ -67,7 +67,7 @@ const UserHeader = React.forwardRef<HTMLDivElement, UserHeaderProps>(
             vertical="top"
             className={spacingVariants[variant]}
           >
-            <HStack vertical="center" horizontal="leading">
+            <HStack vertical="center" horizontal="leading" gap={1}>
               <Typography
                 variant={displayNameVariants[variant]}
                 className="font-bold"

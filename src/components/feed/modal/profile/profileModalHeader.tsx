@@ -30,7 +30,6 @@ function ProfileModalHeader({ user }: { user: BaseFarcasterUser }) {
             datePosted={new Date()}
             variant="profile"
             hideTime
-            className="w-[600px] "
           />
         </motion.div>
       )}
@@ -47,7 +46,7 @@ function ProfileModalHeader({ user }: { user: BaseFarcasterUser }) {
               hideTime
             />
           </motion.div>
-          <span className="w-1/4">
+          <span className="w-1/4 flex items-end justify-end">
             <AnimatedButton
               idleText="Follow"
               loadingText="Loading"

@@ -1,32 +1,29 @@
 import Link from "next/link";
-import { ConceptRowLeftColumn, ConceptRowRightColumn } from "../boilerplate";
+
 import { FauxChatIndex } from "../chat";
 import { InlineChip } from "@/components/elements/chips";
+import { DocsRow } from "@/components/docs/docsRow";
 
 function ChatRow() {
   return (
-    <section className="max-w-[1100px] w-full flex">
-      <ConceptRowLeftColumn
+    <DocsRow>
+      <DocsRow.LeftColumn
         title="Ephemeral Chat"
-        description={`One of my favorite things about twitter is that whenever something
-        is happening, be it a sporting event or a TV show, you can
-        immediately find a collection of tweets about the event. There are a
-        handful of times where I have thought about casting something
-        related to an event like this, but have stopped because I didn't
-        want to post it on my main feed. I don't think that 'narrowcasting' is the solution to the aforementioned problem, so I created this.
-        \n\n An ephemeral chat tab for each
-        channel would be interesting, enabling channel owners to toggle it
-        on for a live event that would attract a meaningful dialogue. I
-        created a frame that is linked below, and this tab could be represented by a pinned post on other clients`}
+        description={`One of the my favorite parts about Twitter is the instant collection of tweets about live events, like sports or TV shows.
+          I've often hesitated to post event-related content on farcaster, as I didn't want to post it to the main feed.
+          While warpcast has attempted to address this with 'narrowcasting', I don't think thats the solution to the aforementioned problem.
+          As such,  I developed an ephemeral chat tab for each channel. 
+          Channel owners can enable this for live events, fostering meaningful dialogue that they otherwise wouldn't have due to the hesitance to live cast more niche subjects. 
+         To avoid the issue where only kiosk user's could partcipate in the conversation, I created a frame (very much an MVP) that is linked below, and this tab could be represented by a pinned post on other clients`}
       >
         <Link href="https://warpcast.com/dmnd/0xc1ba52be" target="_blank">
           <InlineChip variant="ghost" textToDisplay="MVP Frame" />
         </Link>
-      </ConceptRowLeftColumn>
-      <ConceptRowRightColumn>
+      </DocsRow.LeftColumn>
+      <DocsRow.RightColumn styled>
         <FauxChatIndex />
-      </ConceptRowRightColumn>
-    </section>
+      </DocsRow.RightColumn>
+    </DocsRow>
   );
 }
 export { ChatRow };

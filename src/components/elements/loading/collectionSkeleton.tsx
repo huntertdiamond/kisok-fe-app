@@ -8,7 +8,7 @@ function CollctionSkeleton() {
   return (
     <VStack gap={2}>
       {hstackArray.map((_, index) => (
-        <HStack key={index}>
+        <HStack key={index} gap={2}>
           <Skeleton className="h-[120px] w-full bg-kioskBlue-100 rounded-[12px]" />
           <Skeleton className="h-[120px] w-full bg-kioskBlue-100 rounded-[12px]" />
         </HStack>

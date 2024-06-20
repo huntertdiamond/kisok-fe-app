@@ -52,25 +52,27 @@ function CastCreationBottomRow({
   };
 
   return (
-    <HStack horizontal="between">
-      <HStack gap={4} className="text-neutral-400 stroke-neutral-400">
-        <HStack vertical="center" horizontal="center">
-          <label
-            htmlFor="dropzone-file"
-            className="flex flex-col items-center justify-center"
-          >
-            <div className="flex flex-col items-center justify-center hover:cursor-pointer">
-              <ImageIcon size={20} />
-            </div>
-            <input
-              id="dropzone-file"
-              type="file"
-              className="hidden"
-              accept=".png, .jpeg"
-              onChange={handleFileSelected}
-            />
-          </label>
-        </HStack>
+    <HStack horizontal="between" vertical="center">
+      <HStack
+        gap={4}
+        horizontal="leading"
+        className="text-neutral-400 stroke-neutral-400"
+      >
+        <label
+          htmlFor="dropzone-file"
+          className="flex flex-col items-center justify-center"
+        >
+          <div className="flex flex-col items-center justify-center hover:cursor-pointer">
+            <ImageIcon size={20} />
+          </div>
+          <input
+            id="dropzone-file"
+            type="file"
+            className="hidden"
+            accept=".png, .jpeg"
+            onChange={handleFileSelected}
+          />
+        </label>
 
         <button
           onClick={() =>
@@ -83,7 +85,7 @@ function CastCreationBottomRow({
         </button>
       </HStack>
 
-      <HStack>
+      <HStack vertical="center" horizontal="trailing" gap={4}>
         <TextLengthDisplay textLength={textLength} />
         <AnimatedButton
           idleText="Share"

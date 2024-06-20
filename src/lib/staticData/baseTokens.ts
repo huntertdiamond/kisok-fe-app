@@ -85,12 +85,17 @@ const ethereumTokenObject: DefaultToken = {
   `,
 };
 
-const placeholderTokens = [degenTokenObject, enjoyTokenObject];
+const placeholderTokens = [
+  degenTokenObject,
+  enjoyTokenObject,
+  higherStaticBaseToken,
+];
 
 const placeholderBaseTokens = [
   degenTokenObject,
   enjoyTokenObject,
   tn100xTokenObject,
+  higherStaticBaseToken,
 ];
 
 export {

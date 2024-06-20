@@ -11,3 +11,4 @@ export type {
   RoundedOptions,
 } from "./type.blockStylingOptions";
 export { TimeframeForChart } from "./type.chartTimeframeOptions";
+export * from "./type.tippingFlowPosition";

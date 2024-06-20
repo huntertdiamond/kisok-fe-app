@@ -1,18 +1,20 @@
 import { HStack, Typography } from "@/components/elements";
+
 import { useQuery } from "@tanstack/react-query";
 import { LinkChip } from "@/components/elements/chips";
 import { cn } from "@/lib/tailwind/utils";
 import { DefaultCastEmbed } from "@/types/internal/farcaster";
 import { useValidateMedia } from "@/lib/hooks";
+import { OpenGraphEmbedContainer } from "./openGraphIndex";
 
 function DefaultEmbedContainer({
   castId,
   embeds,
-  smallVariant = false,
+  largeEmbed = false,
 }: {
   castId: string;
   embeds: DefaultCastEmbed[];
-  smallVariant?: boolean;
+  largeEmbed?: boolean;
 }) {
   const { validateMedia } = useValidateMedia();
   const {
@@ -38,36 +40,24 @@ function DefaultEmbedContainer({
 
   return (
     <>
-      <HStack>
+      <HStack gap={1}>
         {validMedia.map((mediaObj) => (
           <img
             key={mediaObj}
             src={mediaObj}
             alt="media"
             className={cn(
-              "rounded-[8px] shadow-heavyShadow object-cover max-h-[500px]",
+              "rounded-[8px] shadow-heavyShadow object-cover max-h-[500px] h-full w-full",
               validMedia.length === 2 ? "w-1/2 h-auto" : "w-full h-full",
-              smallVariant ? "max-h-[500px] aspect-square " : ""
+              largeEmbed ? "max-h-[500px] aspect-square " : ""
             )}
             loading="lazy"
           />
         ))}
       </HStack>
+
       {invalidMedia.map((linkObj) => {
-        return (
-          <LinkChip
-            variant="ghost"
-            size="small"
-            linkType="external"
-            link={linkObj.url}
-            className="w-auto"
-            key={linkObj.url}
-          >
-            <Typography variant="body" className="text-sm line-clamp-1 ">
-              {linkObj.title}
-            </Typography>
-          </LinkChip>
-        );
+        return <OpenGraphEmbedContainer url={linkObj.url} key={linkObj.url} />;
       })}
     </>
   );

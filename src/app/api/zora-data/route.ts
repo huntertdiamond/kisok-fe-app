@@ -1,26 +1,36 @@
 import { NextResponse, NextRequest } from "next/server";
-import { gql, GraphQLClient } from "graphql-request";
+
+import { GraphQLClient } from "graphql-request";
+
 import { readContract } from "viem/actions";
+
+import { ChainIdOption } from "@/types/internal/chains";
+
+import { zoraERC1155Abi } from "@/lib/constants";
+
+import { queryReservoirAPI } from "@/lib/fetch/api";
+
+import { zoraTokenQuery, nftCreatorAirstackQuery } from "@/lib/query";
+
+import { ExtendedNft } from "@/types/internal/nft";
+
+import { zeroAddress } from "viem";
+
 import {
   airstackGraphQlCLient,
   returnViemClientForChainId,
 } from "@/lib/configs";
-import { ChainIdOption } from "@/types/internal/chains";
 
-import { zoraERC1155Abi } from "@/lib/constants";
-import { queryReservoirAPI } from "@/lib/fetch/api";
-
-import { zoraTokenQuery, nftCreatorAirstackQuery } from "@/lib/query";
-import { ExtendedNft } from "@/types/internal/nft";
-import { zeroAddress } from "viem";
 import {
   AirstackNftCreatorResponse,
   AirstackSocial,
 } from "@/types/external/airstack";
+
 import {
   ZoraNftFromQuery,
   ZoraTokensQueryResponse,
 } from "@/types/external/zora";
+
 import {
   ReservoirNftFullMetadata,
   ReservoirTokenElement,
@@ -38,7 +48,7 @@ const graphQLClient = new GraphQLClient(ZORA_API_URL);
 export async function GET(request: NextRequest): Promise<NextResponse> {
   const { searchParams } = new URL(request.url);
 
-  const chain = searchParams.get("chain");
+  const chain = searchParams.get("chainId");
   const tokenAddress = searchParams.get("tokenAddress");
   const tokenId = searchParams.get("tokenId");
 
@@ -60,7 +70,6 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     );
 
     if (!selectedTokenFromZora) {
-      console.log("no zora token");
       return new NextResponse(JSON.stringify("ERROR: No token found in Zora"), {
         status: 501,
       });

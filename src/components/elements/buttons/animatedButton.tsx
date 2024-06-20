@@ -45,7 +45,7 @@ function AnimatedButton({
 
   return (
     <button
-      className="flex w-full items-center justify-center text-white bg-gradient-to-b from-kioskBlue-400/90 to-kioskBlue-400 py-1.5 rounded-[12px] shadow-buttonShadowTwo min-w-24 overflow-hidden"
+      className="flex min-w-max items-center justify-center text-white bg-gradient-to-b from-kioskBlue-400/90 to-kioskBlue-400 py-1.5 rounded-[12px] shadow-buttonShadowTwo min-w-24 overflow-hidden px-4"
       style={{ textShadow: "0px 1px 1.5px rgba(0, 0, 0, 0.16)" }}
       disabled={buttonState === "loading"}
       onClick={handleClick}

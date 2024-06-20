@@ -1,12 +1,10 @@
 import Image, { StaticImageData } from "next/image";
-import zoraLogo from "@/assets/images/zoraLogo.png";
-import baseIcon from "@/assets/images/base_badge.png";
-import mainnetLogo from "@/assets/images/ethereum.png";
-import arbitrumLogo from "@/assets/images/arbitrumlogo.png";
+import { chainIcons } from "@/lib/constants/chainIcons";
 import { ChainIdOption } from "@/types/internal/chains";
 
 import { cn } from "@/lib/tailwind";
 import { chainClassNames, containerSize, tokenClassNames } from "@/styling";
+
 function TokenChainIconContainer({
   tokenImage,
   chain,
@@ -18,13 +16,6 @@ function TokenChainIconContainer({
   variant: "small" | "smedium" | "default" | "large" | "xl" | "twoXL";
   className?: string;
 }) {
-  const chainIcons: Record<ChainIdOption, StaticImageData> = {
-    [ChainIdOption.Zora]: zoraLogo,
-    [ChainIdOption.Base]: baseIcon,
-    [ChainIdOption.Mainnet]: mainnetLogo,
-    [ChainIdOption.Arbitrum]: arbitrumLogo,
-  };
-
   return (
     <div
       className={cn("relative inline-block", containerSize[variant], className)}

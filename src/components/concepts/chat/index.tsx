@@ -5,7 +5,7 @@ import { useState } from "react";
 import "@/styling/messageStyling.css";
 import { ChatBody } from "./chatBody";
 import { ChatFooter } from "./chatFooter";
-import { FancyCard } from "@/components/elements/cards/fancyCard";
+import { StyledCard } from "@/components/elements/cards/styledCard";
 import { ChannelHeader } from "@/components/feed/modal/channel/channelModalHeader";
 import { placeholderGolfChannel } from "@/lib/staticData/staticChannels";
 import { MessageForChat } from "@/types/internal/concept/type.messageType";

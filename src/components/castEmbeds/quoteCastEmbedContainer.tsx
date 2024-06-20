@@ -2,21 +2,21 @@ import { QuoteCastEmbed } from "@/types/internal/farcaster";
 import { useQuery } from "@tanstack/react-query";
 
 import { CastBodyText } from "../post/postContainers/farcaster";
-import { InternalFarcasterCast } from "@/types/internal/feed";
-import { fetchOurNextApi } from "@/lib/fetch/api";
+
+import { fetchApiData } from "@/lib/fetch/api";
 import { UserHeader } from "../misc/userHeader";
 
-import { CastEmbedIndex } from "./castEmbedIndex";
 import { VStack } from "@/components/elements";
 import { EmbedSkeleton } from "../elements/loading";
+import { QuoteCastEmbedIndex } from "./quoteCastEmbedIndex";
 
 // TO DO: HANDLE THE CAST INFO SERVER SIDE TO PREVENT UNNECESSARY REQUESTS
 function QuoteCastEmbedContainer({
   quoteCast,
-  smallVariant = false,
+  largeEmbed = false,
 }: {
   quoteCast: QuoteCastEmbed;
-  smallVariant?: boolean;
+  largeEmbed?: boolean;
 }) {
   const {
     data: fullCast,
@@ -26,7 +26,7 @@ function QuoteCastEmbedContainer({
     queryKey: ["quoteCast", quoteCast.hash],
 
     queryFn: async () => {
-      const cast = await fetchOurNextApi("single-cast", {
+      const cast = await fetchApiData("single-cast", {
         hash: quoteCast.hash,
       });
 
@@ -39,34 +39,28 @@ function QuoteCastEmbedContainer({
 
   if (isError) return <EmbedSkeleton />;
 
-  return (
-    <>
-      {fullCast ? (
-        <VStack
-          horizontal="leading"
-          vertical="top"
-          gap={1}
-          rounded={10}
-          className="border px-4 py-2 "
-        >
-          <UserHeader
-            user={fullCast.postedBy}
-            datePosted={fullCast.datePosted}
-            variant="quoteCast"
-            hideTime
-          />
+  return fullCast ? (
+    <VStack
+      horizontal="leading"
+      vertical="top"
+      gap={1}
+      rounded={10}
+      className="border px-4 py-2"
+    >
+      <UserHeader
+        user={fullCast.postedBy}
+        datePosted={fullCast.datePosted}
+        variant="quoteCast"
+        hideTime
+      />
 
-          <CastBodyText cast={fullCast} smallVariant={smallVariant} />
-
-          <CastEmbedIndex
-            castId={fullCast.postId}
-            castMedia={fullCast.embeds}
-            smallVariant
-          />
-        </VStack>
-      ) : null}
-    </>
-  );
+      <CastBodyText cast={fullCast} />
+      <QuoteCastEmbedIndex
+        castId={fullCast.postId}
+        castMedia={fullCast.embeds}
+      />
+    </VStack>
+  ) : null;
 }
 
 export { QuoteCastEmbedContainer };

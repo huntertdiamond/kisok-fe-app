@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import axios from "axios";
 import { OpenGraphParent } from "@/types/internal/opengraph";
 import { APP_URL } from "../constants";
-
+import { fetchApiData } from "../fetch/api";
 function useOpenGraph() {
   /**
    * Fetches OpenGraph data for the provided URL.
@@ -12,12 +12,11 @@ function useOpenGraph() {
    */
   const getOpenGraph = useCallback(
     async (url: string): Promise<OpenGraphParent> => {
+      const encodedUrl = encodeURIComponent(url);
       try {
-        console.log("URL", url);
-        const response = await axios.get(
-          `${APP_URL}/api/linkData?url=${encodeURIComponent(url)}`
-        );
-        const data = response.data;
+        const data = await fetchApiData("opengraph", {
+          url: encodedUrl,
+        });
 
         return data;
       } catch (error) {

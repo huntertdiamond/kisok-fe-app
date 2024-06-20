@@ -57,6 +57,7 @@ function ChannelSelectionParentContainer({
               horizontal="leading"
               vertical="center"
               rounded={8}
+              gap={2}
               className="rounded-lg px-2 py-1 bg-kioskPurple-100 border border-kioskPurple-200 hover:cursor-pointer active:shadow-buttonTexture select-none"
             >
               <img
@@ -71,7 +72,7 @@ function ChannelSelectionParentContainer({
                 {parentChannel.name}
               </Typography>
               <span className="hidden group-hover:block transition-all duration-500 ease-linear">
-                <XIcon size={20} strokeWidth={3} stroke="#A3A3A3" />
+                <XIcon size={20} strokeWidth={3} stroke="#A98AE0" />
               </span>
             </HStack>
           </button>

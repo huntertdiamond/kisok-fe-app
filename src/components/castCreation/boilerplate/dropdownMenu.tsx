@@ -37,6 +37,7 @@ function DropdownMenu(props: DropdownMenuProps) {
       }}
       onFocus={onFocus}
       onBlur={onBlur}
+      className="shadow-heavyShadow"
     >
       {options.map((option, index) => {
         const { key, disabled, className, style, label } = option;

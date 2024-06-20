@@ -21,7 +21,7 @@ function EmbedSkeleton({
       padding={2}
       gap={2}
       rounded={12}
-      className="w-full max-w-[400px]  shadow-heavyShadow"
+      className="w-full max-w-[400px]  shadow-heavyShadow h-min"
     >
       <Skeleton className={cn("h-[80px] w-[80px] rounded-[12px]", variants)} />
       <VStack vertical="center" horizontal="leading" gap={2}>

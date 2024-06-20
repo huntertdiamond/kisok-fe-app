@@ -62,6 +62,7 @@ function NewCastInput({
     if (newPrefix === "@") {
       setQueryIsLoading(true);
       const newUsersFromQuery = await getQueriedUser(query);
+      console.log(newUsersFromQuery);
       setQueryIsLoading(false);
       setQueriedUsers(newUsersFromQuery);
     }

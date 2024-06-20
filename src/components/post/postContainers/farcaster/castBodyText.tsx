@@ -11,20 +11,17 @@ import {
 } from "@/lib/typeGuards";
 
 import { cn } from "@/lib/tailwind";
-
+/* TODO:
+Rewrite this so to properly handle copying the text.
+Memoize the text
+*/
 /**
  * Renders the body text of a cast with special formatting for user mentions, channels, and tokens.
  *
  * @param  props.cast - The cast object.
  * @returns The formatted cast text.
  */
-function CastBodyText({
-  cast,
-  smallVariant = false,
-}: {
-  cast: InternalFarcasterCast;
-  smallVariant?: boolean;
-}) {
+function CastBodyText({ cast }: { cast: InternalFarcasterCast }) {
   const { pressInlineChip } = usePressInlineChip();
 
   const parsedText = parseRichText(cast.text);
@@ -168,12 +165,7 @@ function CastBodyText({
   });
 
   return (
-    <div
-      className={cn(
-        "text-[16px] w-full overflow-hidden",
-        smallVariant && "line-clamp-2"
-      )}
-    >
+    <div className={cn("text-[16px] w-full overflow-hidden")}>
       {renderFormattedText.map((part, index) => (
         <React.Fragment key={index}>{part}</React.Fragment>
       ))}

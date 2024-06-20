@@ -1,7 +1,7 @@
 import { CreateCastMentionedLink } from "@/types/internal/mention";
 import { HStack } from "../elements";
 import { XIcon } from "lucide-react";
-import { OpenGraphEmbedContainer } from "../castEmbeds/openGraphIndex";
+import { OpenGraphEmbedContainer } from "../castEmbeds/opengraph/openGraphIndex";
 
 function NewCastEmbedRow({
   links,

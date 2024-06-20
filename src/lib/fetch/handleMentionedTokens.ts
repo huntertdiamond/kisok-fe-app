@@ -1,6 +1,6 @@
 import { DefaultToken } from "@/types/internal/tokens";
 import { RichTextObjects } from "@/types/internal/feed";
-import { fetchOurNextApi } from "./api";
+import { fetchApiData } from "./api";
 
 async function handleMentionedTokens(
   cast: RichTextObjects
@@ -11,7 +11,7 @@ async function handleMentionedTokens(
     .map((token) => token.value.replace(/^\$/, "").toLowerCase())
     .join("&tickers=");
 
-  const tokens = await fetchOurNextApi("tokens-by-ticker", {
+  const tokens = await fetchApiData("tokens-by-ticker", {
     tickers: mentionedTickers,
   });
 

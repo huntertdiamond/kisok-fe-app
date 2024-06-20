@@ -5,7 +5,7 @@ import { ProfileModalHeader } from "./profileModalHeader";
 import { BaseFarcasterUser } from "@/types/internal/user";
 import { useFeedActionContext, useFeedModalContext } from "@/lib/providers";
 import { useQuery } from "@tanstack/react-query";
-import { fetchOurNextApi } from "@/lib/fetch/api";
+import { fetchApiData } from "@/lib/fetch/api";
 import { ExpandedFarcasterProfile } from "@/types/internal/farcaster";
 import { ModalDragHandle } from "../shared";
 
@@ -19,7 +19,7 @@ function ProfileModalIndex({ user }: { user: BaseFarcasterUser }) {
   } = useQuery({
     queryKey: ["profile", user.username],
     queryFn: () =>
-      fetchOurNextApi("profile", {
+      fetchApiData("profile", {
         viewingFid,
         fidBeingViewed: user.farcasterId,
       }),

@@ -62,6 +62,7 @@ function formatSpotifyOpenGraphData(
 
   return {
     title: data.title || "",
+    siteName: "Spotify",
     description: cleanedDescription,
     url: data.url || url,
     image: data.image || "",
@@ -165,6 +166,13 @@ function parseSpotifyDescription(
  * @param {string} url - The original URL.
  * @returns {InstagramOpenGraph} The formatted Instagram OpenGraph data.
  */
+/**
+ * Formats Instagram OpenGraph data.
+ *
+ * @param {Record<string, string>} data - The extracted OpenGraph data.
+ * @param {string} url - The original URL.
+ * @returns {InstagramOpenGraph} The formatted Instagram OpenGraph data.
+ */
 function formatInstagramOpenGraphData(
   data: Record<string, string>,
   url: string
@@ -174,61 +182,48 @@ function formatInstagramOpenGraphData(
     parseInstagramDescription(description);
 
   return {
-    title: data.title || "",
+    siteName: "Instagram",
+    title: postingUser,
     description: cleanedDescription,
     url: data.url || url,
     image: data.image || "",
-    likes: likes,
-    comments: comments,
+    likes: parseInt(likes),
+    comments: parseInt(comments),
     postingUser: postingUser,
-    datePosted: datePosted || new Date(),
+    datePosted: datePosted,
     type: "instagram",
   };
 }
 /**
- * Parses the Instagram description to extract likes, comments, posting user, and date.
+ * Parses the Instagram description to extract the likes, comments, username, date posted, and cleaned description.
  *
- * @param {string} description - The description string to parse.
- * @returns {object} The extracted data including likes, comments, posting user, date, and cleaned description.
+ * @param {string} description - The description from the OpenGraph data.
+ * @returns {object} The parsed data including likes, comments, postingUser, datePosted, and cleanedDescription.
  */
-function parseInstagramDescription(description: string): {
-  likes: number;
-  comments: number;
-  postingUser: string;
-  datePosted: Date | null;
-  cleanedDescription: string;
-} {
-  const likesMatch = description.match(/(\d+,\d+|\d+) likes/);
-  const commentsMatch = description.match(/(\d+,\d+|\d+) comments/);
-  const postingUserMatch = description.match(/-\s+(\w+)\s+on/);
-  const dateMatch = description.match(/on\s+(\w+\s+\d{1,2},\s+\d{4})/);
+function parseInstagramDescription(description: string) {
+  const regex =
+    /(\d+K?) likes?, (\d+) comments? - ([\w.]+) on (\w+ \d+, \d{4}): (.*)/;
+  const match = description.match(regex);
 
-  const likes = likesMatch ? parseInt(likesMatch[1].replace(/,/g, "")) : 0;
-  const comments = commentsMatch
-    ? parseInt(commentsMatch[1].replace(/,/g, ""))
-    : 0;
-  const postingUser = postingUserMatch ? postingUserMatch[1] : "";
-  const datePosted = dateMatch ? new Date(dateMatch[1]) : null;
-
-  let cleanedDescription = description;
-  if (likesMatch) {
-    cleanedDescription = cleanedDescription.replace(likesMatch[0], "").trim();
-  }
-  if (commentsMatch) {
-    cleanedDescription = cleanedDescription
-      .replace(commentsMatch[0], "")
-      .trim();
-  }
-  if (postingUserMatch) {
-    cleanedDescription = cleanedDescription
-      .replace(postingUserMatch[0], "")
-      .trim();
-  }
-  if (dateMatch) {
-    cleanedDescription = cleanedDescription.replace(dateMatch[0], "").trim();
+  if (match) {
+    const [_, likes, comments, postingUser, datePosted, cleanedDescription] =
+      match;
+    return {
+      likes: likes.trim(),
+      comments: comments.trim(),
+      postingUser: `@${postingUser}`,
+      datePosted: new Date(datePosted),
+      cleanedDescription: cleanedDescription.replace(/&quot;/g, '"').trim(),
+    };
   }
 
-  return { likes, comments, postingUser, datePosted, cleanedDescription };
+  return {
+    likes: "",
+    comments: "",
+    postingUser: "",
+    datePosted: new Date(),
+    cleanedDescription: description,
+  };
 }
 
 /**
@@ -238,12 +233,13 @@ function parseInstagramDescription(description: string): {
  * @param {string} url - The original URL.
  * @returns {YoutubeOpenGraph} The formatted Youtube OpenGraph data.
  */
+
 function formatYoutubeOpenGraphData(
   data: Record<string, string>,
   url: string
 ): YoutubeOpenGraph {
-  console.log(data);
   return {
+    siteName: "Youtube",
     title: data.title || "",
     description: data.description || "",
     url: data.url || url,
@@ -264,7 +260,13 @@ function formatDefaultOpenGraphData(
   data: Record<string, string>,
   url: string
 ): DefaultOpenGraph {
+  const domain = new URL(url).hostname.replace("www.", "");
+  const siteName =
+    domain.split(".")[0].charAt(0).toUpperCase() +
+    domain.split(".")[0].slice(1);
+
   return {
+    siteName: siteName,
     title: data.title || "",
     description: data.description || "",
     url: data.url || url,

@@ -40,9 +40,9 @@ function UserListRow({
             horizontal="leading"
             vertical="top"
             gap={0}
-            className="-space-y-1"
+            className="-space-y-0.5"
           >
-            <HStack horizontal="leading" vertical="center">
+            <HStack horizontal="leading" vertical="center" gap={1}>
               <Typography variant="h3">{name}</Typography>
               <PowerBadge variant="feed" />
             </HStack>

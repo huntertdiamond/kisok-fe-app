@@ -5,9 +5,9 @@ import {
   DefaultCastEmbed,
   TwitterCastEmbed,
 } from "@/types/internal/farcaster";
-import { DefaultEmbedContainer } from "./defaultEmbedContainer";
+import { DefaultEmbedContainer } from "./opengraph/defaultEmbedContainer";
 import { QuoteCastEmbedContainer } from "./quoteCastEmbedContainer";
-import { TwitterEmbedDisplay } from "./twitterEmbedContainer";
+import { TwitterEmbedDisplay } from "./opengraph/twitterEmbedContainer";
 import { VideoEmbedDisplay } from "./videoEmbedContainer";
 import { VStack } from "@/components/elements";
 
@@ -22,11 +22,11 @@ import { VStack } from "@/components/elements";
 function CastEmbedIndex({
   castId,
   castMedia,
-  smallVariant = false,
+  largeEmbed = false,
 }: {
   castId: string;
   castMedia: CastEmbedParent[];
-  smallVariant?: boolean;
+  largeEmbed?: boolean;
 }): JSX.Element {
   // Filter for unknown type embeds
   const unknownEmbeds = castMedia.filter(
@@ -52,17 +52,19 @@ function CastEmbedIndex({
       <DefaultEmbedContainer
         castId={castId}
         embeds={unknownEmbeds}
-        smallVariant={smallVariant}
+        largeEmbed={largeEmbed}
       />
       {/* Display the first quoteCast type embed if available */}
-      {quoteCasts.length > 0 && !smallVariant ? (
+      {quoteCasts.length > 0 && !largeEmbed ? (
         <QuoteCastEmbedContainer
           quoteCast={quoteCasts[0]}
-          smallVariant={smallVariant}
+          largeEmbed={largeEmbed}
         />
       ) : null}
       {/* Display Twitter embed*/}
-      {twitterEmbed.length > 0 ? <TwitterEmbedDisplay /> : null}
+      {twitterEmbed.length > 0 ? (
+        <TwitterEmbedDisplay link={twitterEmbed[0].url} />
+      ) : null}
       {videoEmbed.length > 0 ? (
         <VideoEmbedDisplay link={videoEmbed[0].url} />
       ) : null}

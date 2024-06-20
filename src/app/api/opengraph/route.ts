@@ -10,7 +10,6 @@ import { formatOpenGraphData } from "@/lib/formatters/openGraph/formatOpenGraphD
  * @param {NextRequest} request - The incoming request object.
  * @returns {Promise<NextResponse>} The response containing OpenGraph data.
  */
-
 export async function GET(request: NextRequest): Promise<NextResponse> {
   const { searchParams } = new URL(request.url);
   const url = searchParams.get("url");
@@ -22,25 +21,46 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
   }
 
   try {
-    const response = await axios.get(url, {
+    const decodedUrl = decodeURIComponent(url);
+    console.log("DECODED URL IS", decodedUrl);
+    const response = await axios.get(decodedUrl, {
+      // I DON"T KNOW WHY THIS USER-AGENT WORKS, BUT IT DOES ¯\_(ツ)_/¯
       headers: {
-        "User-Agent":
-          // google inspector tool to get opengraph data
-          "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/W.X.Y.Z Mobile Safari/537.36 (compatible; Google-InspectionTool/1.0)",
+        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
       },
+      timeout: 5000, // Set a timeout for the request
     });
     const html = response.data;
     const openGraphData = extractOpenGraphData(html);
-    // console.log(openGraphData);
-    const formattedOpenGraphData = formatOpenGraphData(openGraphData, url);
+
+    const formattedOpenGraphData = formatOpenGraphData(
+      openGraphData,
+      decodedUrl
+    );
     return new NextResponse(JSON.stringify(formattedOpenGraphData), {
       status: 200,
     });
   } catch (error) {
-    console.error(`Error fetching OpenGraph data for URL: ${url}`, error);
-    return new NextResponse("ERROR", { status: 500 });
+    console.error(`Error fetching OpenGraph data for URL: ${url}`);
+    let errorMessage = "ERROR: Unable to fetch OpenGraph data.";
+    if (axios.isAxiosError(error)) {
+      if (error.code === "ECONNREFUSED") {
+        errorMessage =
+          "ERROR: Connection refused. The server might be down or blocking requests.";
+      } else if (error.code === "ECONNABORTED") {
+        errorMessage =
+          "ERROR: Request timeout. The server took too long to respond.";
+      } else if (error.response) {
+        errorMessage = `ERROR: Received status code ${error.response.status}`;
+      }
+    }
+
+    return new NextResponse(JSON.stringify({ error: error }), {
+      status: 500,
+    });
   }
 }
+
 /**
  * Extracts OpenGraph data from the given HTML string using cheerio.
  *

@@ -1,19 +1,19 @@
 import { cn } from "@/lib/tailwind";
 import { VStack } from "../blocks";
 
-interface FancyCardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface StyledCardProps extends React.HTMLAttributes<HTMLDivElement> {
   parentClassName?: string;
   childClassName?: string;
   variant?: "default" | "blue" | "fancy";
   children: React.ReactNode;
 }
 
-function FancyCard({
+function StyledCard({
   parentClassName,
   childClassName,
   variant = "default",
   children,
-}: FancyCardProps) {
+}: StyledCardProps) {
   const outerStackVariants = {
     default: "bg-gradient-to-b from-[#F7F7F7]/50 to-white",
     blue: "bg-gradient-to-b from-kioskBlue-200 via-kioskBlue-100 to-white",
@@ -36,7 +36,7 @@ function FancyCard({
     >
       <VStack
         className={cn(
-          "bg-white border border-[#F1F1F1] p-4 h-full w-full",
+          "bg-white border border-[#F1F1F1] p-4 h-full w-full overflow-hidden",
           childClassName
         )}
         horizontal="leading"
@@ -49,4 +49,4 @@ function FancyCard({
     </VStack>
   );
 }
-export { FancyCard };
+export { StyledCard };

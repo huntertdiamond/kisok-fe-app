@@ -1,5 +1,5 @@
 import { HStack, Typography, VStack } from "@/components/elements";
-import { FancyCard } from "@/components/elements/cards/fancyCard";
+import { StyledCard } from "@/components/elements/cards/styledCard";
 import { cn } from "@/lib/tailwind";
 
 export default function Home() {
@@ -43,7 +43,7 @@ export default function Home() {
       </nav>
       <section className="items-center justify-center gap-6 flex flex-col lg:flex-row  max-w-[1100px]">
         <a href="/feed" className="w-full lg:w-1/3 ">
-          <FancyCard parentClassName="w-full lg:h-[500px]" variant="fancy">
+          <StyledCard parentClassName="w-full lg:h-[500px]" variant="fancy">
             <VStack horizontal="leading" gap={2} className="h-full">
               <div className="h-full w-full bg-kioskBlue-500">f</div>
               <Typography variant="h1">Feed Demo</Typography>
@@ -53,11 +53,11 @@ export default function Home() {
                 explored further.`}
               </Typography>
             </VStack>
-          </FancyCard>
+          </StyledCard>
         </a>
 
         <a href="/components" className="w-full lg:w-1/3 ">
-          <FancyCard parentClassName="w-full lg:h-[500px]" variant="fancy">
+          <StyledCard parentClassName="w-full lg:h-[500px]" variant="fancy">
             <VStack horizontal="leading" gap={2} className="h-full">
               <div className="h-full w-full bg-kioskBlue-500">f</div>
               <Typography variant="h1">Components</Typography>
@@ -67,11 +67,11 @@ export default function Home() {
                 application like kiosk.
               </Typography>
             </VStack>
-          </FancyCard>
+          </StyledCard>
         </a>
 
         <a href="/concepts" className="w-full lg:w-1/3 ">
-          <FancyCard parentClassName="w-full lg:h-[500px]" variant="fancy">
+          <StyledCard parentClassName="w-full lg:h-[500px]" variant="fancy">
             <VStack horizontal="leading" gap={2} className="h-full">
               <div className="h-full w-full bg-kioskBlue-500">f</div>
               <Typography variant="h1">Concepts</Typography>
@@ -80,7 +80,7 @@ export default function Home() {
                 further brainstorming. Not meant to be taken at face value.
               </Typography>
             </VStack>
-          </FancyCard>
+          </StyledCard>
         </a>
       </section>
     </main>

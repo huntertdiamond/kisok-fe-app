@@ -1,5 +1,5 @@
 type LinkChipProps = {
-  className: string;
+  className?: string;
   size: "small" | "medium" | "large";
   linkType: "external" | "internal";
   variant: "ghost" | "outline";

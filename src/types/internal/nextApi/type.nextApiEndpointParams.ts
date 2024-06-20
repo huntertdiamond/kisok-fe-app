@@ -35,6 +35,9 @@ type NextApiEndpointParams = {
     tokenId: string;
     tokenAddress: string;
   };
+  tweet: {
+    tweetId: string;
+  };
 };
 
 export type { NextApiEndpointParams };

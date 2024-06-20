@@ -1,3 +1,4 @@
+import { NeynarUsernameQueryResponse } from "@/types";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -41,8 +42,14 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
   };
 
   try {
-    const response = await axios.get(queryUrl, options);
-    return new NextResponse(JSON.stringify(response.data), { status: 200 });
+    const response = await axios.get<NeynarUsernameQueryResponse>(
+      queryUrl,
+      options
+    );
+
+    const formattedData = response.data.result.users;
+
+    return new NextResponse(JSON.stringify(formattedData), { status: 200 });
   } catch (error) {
     console.error("Error:", error);
     return new NextResponse(

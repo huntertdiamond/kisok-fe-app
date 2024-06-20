@@ -25,7 +25,6 @@ function YoutubeEmbedDisplay({
           "bg-white rounded-[12px] border border-[#F1F1F1] overflow-hidden",
           "w-full h-0 pb-[56.25%] relative"
         )}
-        horizontal="leading"
       >
         <iframe
           className="absolute top-0 left-0 w-full h-full"

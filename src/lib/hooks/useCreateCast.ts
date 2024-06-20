@@ -11,7 +11,7 @@ import {
   CreateCastMentionedUserWithParentIndex,
 } from "@/types/internal/mention";
 import { NeynarUsernameQueryResponse } from "@/types/external/neynar";
-import { fetchOurNextApi } from "../fetch/api";
+import { fetchApiData } from "../fetch/api";
 
 function useCreateCast() {
   function debounce<T extends (...args: any[]) => Promise<any>>(
@@ -37,11 +37,11 @@ function useCreateCast() {
     if (query.length < 2) return [];
 
     try {
-      const fetchedUsers = await fetchOurNextApi("fname-match", {
+      const fetchedUsers = await fetchApiData("fname-match", {
         username: query,
         viewingFid: 3,
       });
-
+      console.log("FETCHED USERS FROM GETQUERIEDUSSER", fetchedUsers);
       const newUsers = fetchedUsers.map((user) => {
         return {
           id: user.fid,
@@ -53,6 +53,7 @@ function useCreateCast() {
 
       return newUsers;
     } catch (error) {
+      console.log("ERROR IN GETQUERIEDUSSER", error);
       return [];
     }
   };

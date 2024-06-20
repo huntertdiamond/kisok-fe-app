@@ -2,7 +2,7 @@ import { HStack, Typography, VStack } from "@/components/elements";
 import { TokenChainIconContainer } from "@/components/misc/tokenChainIconContainer";
 import ethIcon from "@/assets/images/ethereum.png";
 import { ArrowRight } from "lucide-react";
-import { FancyCard } from "@/components/elements/cards/fancyCard";
+import { StyledCard } from "@/components/elements/cards/styledCard";
 
 function OnchainMemoryContent() {
   return (
@@ -21,7 +21,7 @@ function OnchainMemoryContent() {
           One Year Ago, Today
         </Typography>
       </>
-      {/* <FancyCard> */}
+      {/* <StyledCard> */}
       <VStack className="pt-2" gap={4}>
         <HStack className="relative" gap={1}>
           <div className="bg-neutral-100/80 rounded-[12px] w-full h-full p-4 items-center justify-center flex gap-2">
@@ -60,7 +60,7 @@ function OnchainMemoryContent() {
             </VStack>
           </div>
         </HStack>
-        <FancyCard>
+        <StyledCard>
           <HStack horizontal="between" gap={2}>
             <Typography variant="body" secondary className="leading-16 ">
               Actual PNL
@@ -93,7 +93,7 @@ function OnchainMemoryContent() {
               </Typography>
             </span>
           </HStack>
-        </FancyCard>
+        </StyledCard>
         <Typography variant="body" className="leading-16 text-center">
           {`You should've known better. You know the founder has a $100M loan
           against CRV. You know that he has 20% of the outstanding supply. Why

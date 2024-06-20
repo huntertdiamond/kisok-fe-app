@@ -6,7 +6,10 @@ import { useFeedModalContext } from "@/lib/providers";
 import { FeedPost } from "@/components/post";
 import { placeholderBaseTokens } from "@/lib/staticData/baseTokens";
 
-import { placeholderCastWithMention } from "@/lib/staticData";
+import {
+  placeholderCastWithMention,
+  placeholderCastWithQuote,
+} from "@/lib/staticData";
 import { TabBarLine } from "@/components/elements/tabs";
 import { useState } from "react";
 import { MembersDisplay } from "./membersDisplay";
@@ -33,7 +36,7 @@ function ChannelModalIndex({ channel }: { channel: FarcasterChannel }) {
             />
           </div>
           {selectedTab === "Posts" ? (
-            <FeedPost post={placeholderCastWithMention} />
+            <FeedPost post={placeholderCastWithQuote} />
           ) : null}
           {selectedTab === "Members" ? <MembersDisplay /> : null}
           {selectedTab === "Collection" ? <ChannelCollectionDisplay /> : null}

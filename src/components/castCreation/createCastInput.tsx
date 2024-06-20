@@ -5,7 +5,7 @@ import { CastCreationBottomRow } from "./bottomRow";
 import { NewCastEmbedRow } from "./embedRow";
 import { CastImagesContainer } from "./imageRow";
 import { NewCastInput } from "./input";
-import { FancyCard } from "../elements/cards/fancyCard";
+import { StyledCard } from "../elements/cards/styledCard";
 import { channelOptions } from "@/lib/staticData/createCastPlaceholders";
 import { CreateCastMentionedChannel } from "@/types/internal/mention";
 
@@ -45,7 +45,7 @@ function CreateCastInput() {
   };
 
   return (
-    <FancyCard>
+    <StyledCard>
       <NewCastInput
         textValue={textValue}
         setTextValue={setTextValue}
@@ -67,7 +67,7 @@ function CreateCastInput() {
         textValue={textValue}
         setImagesToUpload={setImagesToUpload}
       />
-    </FancyCard>
+    </StyledCard>
   );
 }
 

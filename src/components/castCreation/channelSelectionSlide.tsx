@@ -63,6 +63,7 @@ function ChannelSelectionSlide({
             horizontal="center"
             vertical="center"
             rounded={12}
+            gap={2}
             className="px-2 py-1 bg-[#F7F7F7]/90 hover:shadow-buttonTextureHover hover:cursor-pointer active:shadow-buttonTexture select-none border border-transparent"
           >
             <img

@@ -1,12 +1,14 @@
 "use client";
 import { DefaultOpenGraphEmbedDisplay } from "./defaultOpenGraphEmbedContainer";
-import { InstagramEmbedDisplay } from "./instagramEmbedContainer";
-import { SpotifyEmbedDisplay } from "./spotifyEmbedContainer";
+
 import { YoutubeEmbedDisplay } from "./youtubeEmbedContainer";
 import { useOpenGraph } from "@/lib/hooks/useOpenGraph";
 import { OpenGraphParent } from "@/types/internal/opengraph";
 import { useQuery } from "@tanstack/react-query";
-import { EmbedSkeleton } from "../elements/loading";
+import { EmbedSkeleton } from "../../elements/loading";
+import { LinkChip } from "../../elements/chips";
+import { Typography } from "../../elements";
+import { LargeOpengraphEmbed } from "./largeOpengraphEmbed";
 
 function OpenGraphEmbedContainer({
   url,
@@ -29,12 +31,39 @@ function OpenGraphEmbedContainer({
   });
 
   if (isLoading) return <EmbedSkeleton />;
+  if (!openGraphData && !isLoading)
+    return (
+      <LinkChip variant="ghost" link="" linkType="external" size="small">
+        {url}
+      </LinkChip>
+    );
   if (!openGraphData) return <EmbedSkeleton variant="warning" />;
   if (error) return <EmbedSkeleton variant="error" />;
 
+  if (abbreviated) {
+    return (
+      <LinkChip
+        variant="ghost"
+        size="medium"
+        link={openGraphData.url}
+        linkType="external"
+      >
+        <Typography variant="body" className="text-sm">
+          {openGraphData.title}
+        </Typography>
+      </LinkChip>
+    );
+  }
+
   switch (openGraphData.type) {
     case "spotify":
-      return <SpotifyEmbedDisplay spotifyData={openGraphData} />;
+    case "instagram":
+      return (
+        <LargeOpengraphEmbed
+          opengraphData={openGraphData}
+          platform={openGraphData.type}
+        />
+      );
     case "youtube":
       return (
         <YoutubeEmbedDisplay
@@ -42,13 +71,7 @@ function OpenGraphEmbedContainer({
           abbreviated={abbreviated}
         />
       );
-    case "instagram":
-      return (
-        <InstagramEmbedDisplay
-          instagramData={openGraphData}
-          abbreviated={abbreviated}
-        />
-      );
+
     case "default":
       return (
         <DefaultOpenGraphEmbedDisplay
@@ -57,7 +80,7 @@ function OpenGraphEmbedContainer({
         />
       );
     default:
-      return <div>default</div>;
+      return <div>error</div>;
   }
 }
 

@@ -5,7 +5,7 @@ import { VStack } from "@/components/elements";
 import { MintModalHeader } from "./mintModalHeader";
 import { MintModalBody } from "./mintModalBody";
 
-import { fetchOurNextApi } from "@/lib/fetch/api";
+import { fetchApiData } from "@/lib/fetch/api";
 import { MintSkeleton } from "@/components/elements/loading";
 import { ExtendedNft } from "@/types/internal/nft";
 
@@ -26,7 +26,7 @@ function MintModalIndex({
   } = useQuery<ExtendedNft>({
     queryKey: ["nftData", tokenAddress, tokenId, chainId],
     queryFn: async () => {
-      const responseData = await fetchOurNextApi("zora-data", {
+      const responseData = await fetchApiData("zora-data", {
         chainId,
         tokenId,
         tokenAddress,

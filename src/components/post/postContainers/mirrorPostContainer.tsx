@@ -1,7 +1,7 @@
 import { MirrorFeedPost } from "@/types/internal/feed";
 import { parseMirrorUrlForContentDigest } from "@/lib/formatters/mirror";
 import { useQuery } from "@tanstack/react-query";
-import { fetchOurNextApi } from "@/lib/fetch/api";
+import { fetchApiData } from "@/lib/fetch/api";
 
 import { Typography, VStack } from "@/components/elements";
 import { UserHeader } from "@/components/misc/userHeader";
@@ -16,7 +16,7 @@ function MirrorPostContainer({ post }: { post: MirrorFeedPost }) {
   } = useQuery({
     queryKey: ["mirrorPost", post.postId],
     queryFn: async () => {
-      return fetchOurNextApi("mirror-content", {
+      return fetchApiData("mirror-content", {
         mirrorContentDigest: mirrorContentDigest!,
       });
     },

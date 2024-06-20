@@ -1,19 +1,20 @@
+import { DocsRow } from "@/components/docs/docsRow";
 import { ConceptRowLeftColumn, ConceptRowRightColumn } from "../boilerplate";
 import { MobileKeyboardAccessory } from "../mobileKeyboardAccessory";
 
 function KeyboardAccessoryRow() {
   return (
-    <section className="max-w-[1100px] w-full flex">
-      <ConceptRowLeftColumn
+    <DocsRow>
+      <DocsRow.LeftColumn
         title="Keyboard Accessory"
-        description="The keyboard accessory is a small component that is placed on the bottom of the keyboard. It contains buttons for common functions such as copy, paste, and select all."
+        description="This is a really simple component that could be used in tandem with the <CreateCastInput /> component to make the cast creation process more user friendly."
       >
         <></>
-      </ConceptRowLeftColumn>
-      <ConceptRowRightColumn>
+      </DocsRow.LeftColumn>
+      <DocsRow.RightColumn styled>
         <MobileKeyboardAccessory />
-      </ConceptRowRightColumn>
-    </section>
+      </DocsRow.RightColumn>
+    </DocsRow>
   );
 }
 

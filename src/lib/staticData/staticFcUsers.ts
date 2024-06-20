@@ -28,5 +28,18 @@ const lghtUserObject: BaseFarcasterUser = {
   noOfFollowers: 38956,
   noOfFollowing: 542,
 };
+const hunterUserObject: BaseFarcasterUser = {
+  farcasterId: 240865,
+  username: "htd",
+  displayName: "Hunter",
+  bio: "🛰️🪐",
+  pfpUrl: "https://i.imgur.com/l6DgqTS.jpg",
+  isKioskUser: true,
+  isPowerUser: true,
+  preferredEthereumAddress: "0x68ae5140826F2962849B8ab1dE934ee0CF6c7435",
+  custodyAddress: "0x68ae5140826F2962849B8ab1dE934ee0CF6c7435",
+  noOfFollowers: 320,
+  noOfFollowing: 120,
+};
 
-export { ndUserObject, lghtUserObject };
+export { ndUserObject, lghtUserObject, hunterUserObject };

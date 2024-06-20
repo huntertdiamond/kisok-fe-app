@@ -6,7 +6,7 @@ import {
 } from "@/types";
 import { APP_URL } from "../../constants/environment";
 
-async function fetchOurNextApi<T extends OurNextApiEndpoints>(
+async function fetchApiData<T extends OurNextApiEndpoints>(
   reqType: T,
   params: NextApiEndpointParams[T]
 ): Promise<NextApiResponseMap[T]> {
@@ -24,4 +24,4 @@ async function fetchOurNextApi<T extends OurNextApiEndpoints>(
   }
 }
 
-export { fetchOurNextApi };
+export { fetchApiData };

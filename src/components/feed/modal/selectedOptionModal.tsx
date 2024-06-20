@@ -12,7 +12,6 @@ import { TokenModalIndex } from "./token";
 
 const SelectedOptionModal: React.FC = () => {
   const { selectedModalOption, selectedItemForModal } = useFeedActionContext();
-
   return (
     <>
       {selectedModalOption === ModalOptions.Tip && <TipModalIndex />}

@@ -25,7 +25,7 @@ function FarcasterPostContainer({
         <CastEmbedIndex
           castMedia={post.embeds}
           castId={post.postId}
-          smallVariant={largeEmbed}
+          largeEmbed={largeEmbed}
         />
       ) : null}
 
@@ -38,6 +38,7 @@ function FarcasterPostContainer({
           onClick={() => pressInlineChip("channel", post.channel ?? null)}
         />
       ) : null}
+
       <CastActionsRow cast={post} />
     </>
   );

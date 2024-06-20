@@ -1,9 +1,7 @@
+import { ComponentsScreen } from "@/screens/components";
+
 function ComponentsPage() {
-  return (
-    <div>
-      <h1>Components</h1>
-    </div>
-  );
+  return <ComponentsScreen />;
 }
 
 export default ComponentsPage;

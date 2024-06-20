@@ -1,19 +1,22 @@
+import { DocsRow } from "@/components/docs/docsRow";
 import { ConceptRowLeftColumn, ConceptRowRightColumn } from "../boilerplate";
 import { OnchainMemoryFauxModal } from "../memories/fauxModal";
 
 function OnchainMemoriesRow() {
   return (
-    <section className="max-w-[1100px] w-full flex">
-      <ConceptRowLeftColumn
+    <DocsRow>
+      <DocsRow.LeftColumn
         title="Onchain Memories"
-        description="Inspired by snapchat memories, I wanted to create a component that would achieve two things: 1. Drive DAU and 2. Create a viral loop, where other farcaster users who are not using kiosk, make a decision to switch after seeing something like this in their timeline. The displayed implentation definitely needs some work, but I think it would be an interesting concept to explore further."
+        description="
+        Inspired by Snapchat Memories, I aimed to create a component to boost DAUs and foster a viral loop. The goal is to give users content to share (eg their memefied onchain history) so other users see it on their TL, while giving the sharing user another reason to  come back day over day. While the current implementation needs refinement, I think it's a concept worth exploring further.
+        "
       >
         <></>
-      </ConceptRowLeftColumn>
-      <ConceptRowRightColumn>
+      </DocsRow.LeftColumn>
+      <DocsRow.RightColumn styled>
         <OnchainMemoryFauxModal />
-      </ConceptRowRightColumn>
-    </section>
+      </DocsRow.RightColumn>
+    </DocsRow>
   );
 }
 
