@@ -11,6 +11,8 @@ const DocsRow = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+DocsRow.displayName = "DocsRow";
+
 DocsRow.LeftColumn = ({
   children,
   title,
@@ -32,6 +34,8 @@ DocsRow.LeftColumn = ({
     </VStack>
   );
 };
+// @ts-ignore
+DocsRow.LeftColumn.displayName = "DocsRow.LeftColumn";
 
 DocsRow.RightColumn = ({
   children,
@@ -51,6 +55,8 @@ DocsRow.RightColumn = ({
     <div className="w-[450px] h-min">{children}</div>
   );
 };
+// @ts-ignore
+DocsRow.RightColumn.displayName = "DocsRow.RightColumn";
 
 interface SelectionChipProps<T> {
   option: T;
@@ -78,12 +84,13 @@ DocsRow.SelectionChip = function <T>({
     </button>
   );
 };
+// @ts-ignore
+DocsRow.SelectionChip.displayName = "DocsRow.SelectionChip";
 
 interface SelectionRowProps<T> {
   options: T[];
   selectedOption: T;
   optionSetter: (option: T) => void;
-
   displayText: (option: T) => string;
 }
 
@@ -107,5 +114,7 @@ DocsRow.SelectionRow = function <T>({
     </HStack>
   );
 };
+// @ts-ignore
+DocsRow.SelectionRow.displayName = "DocsRow.SelectionRow";
 
 export { DocsRow };
