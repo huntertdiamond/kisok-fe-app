@@ -264,33 +264,4 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 
 This is pretty simple, we are getting the user's feed from pinata, then using the formatPinataFeed function to parse the text to ensure we are properly higlighting mentioned users, tokens, and channels, as well as fetching the data for the aforementioned items. This needs to be improved for performance, but served the purpose for the demo 🙃. It returns an array of the `InternalFarcasterCast` type.
 
-#### /feed
-
-```typescript
-export async function GET(request: NextRequest): Promise<NextResponse> {
-  const { searchParams } = new URL(request.url);
-  const fid = searchParams.get("fid");
-
-  if (!fid) {
-    return new NextResponse(JSON.stringify("ERROR"), { status: 400 });
-  }
-
-  const feedData = await queryPinataAPI<PinataFeedResponse>(
-    PinataReqType.Feed,
-    fid
-  );
-
-  const formattedFeedData = await formatPinataFeed(feedData);
-
-  formattedFeedData.sort(
-    (a, b) =>
-      new Date(b.datePosted).getTime() - new Date(a.datePosted).getTime()
-  );
-
-  return new NextResponse(JSON.stringify(formattedFeedData), { status: 200 });
-}
-```
-
-This is pretty simple, we are getting the user's feed from pinata, then using the formatPinataFeed function to parse the text to ensure we are properly higlighting mentioned users, tokens, and channels, as well as fetching the data for the aforementioned items. This needs to be improved for performance, but served the purpose for the demo 🙃. It returns an array of the `InternalFarcasterCast` type.
-
 I won't go deeper into the server side documentation, but if you have any questions about technical decisions please feel free to reach out :)
