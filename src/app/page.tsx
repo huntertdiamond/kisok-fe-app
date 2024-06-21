@@ -27,7 +27,7 @@ export default function Home() {
             <a href="https://github.com/huntertdiamond" target="_blank">
               <p>Github</p>
             </a>
-            <a href="https://warpcast.com/huntertdiamond" target="_blank">
+            <a href="https://warpcast.com/htd" target="_blank">
               <p>Farcaster</p>
             </a>
             <a href="https://twitter.com/huntertdiamond" target="_blank">
@@ -42,7 +42,7 @@ export default function Home() {
           </HStack>
         </HStack>
       </nav>
-      <section className="items-center justify-center gap-6 flex flex-col lg:flex-row  max-w-[1100px]">
+      <section className="items-center justify-center gap-6 flex flex-col max-w-[1100px] w-full">
         <CardLink
           href="/feed"
           title="Feed Demo"
@@ -71,10 +71,9 @@ interface CardLinkProps {
 }
 
 const CardLink = ({ href, title, description }: CardLinkProps) => (
-  <a href={href} className="w-full lg:w-1/3">
-    <StyledCard parentClassName="w-full lg:h-[500px]" variant="fancy">
+  <a href={href} className="w-full ">
+    <StyledCard parentClassName="w-full " variant="fancy">
       <VStack horizontal="leading" gap={2} className="h-full">
-        <div className="h-full w-full bg-kioskBlue-500">f</div>
         <Typography variant="h1">{title}</Typography>
         <Typography secondary variant="body" className="leading-16">
           {description}
