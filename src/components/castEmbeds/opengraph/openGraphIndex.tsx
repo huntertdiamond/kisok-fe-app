@@ -34,7 +34,7 @@ function OpenGraphEmbedContainer({
   if (!openGraphData && !isLoading)
     return (
       <LinkChip variant="ghost" link="" linkType="external" size="small">
-        {url}
+        {url.substring(0, 18)}
       </LinkChip>
     );
   if (!openGraphData) return <EmbedSkeleton variant="warning" />;

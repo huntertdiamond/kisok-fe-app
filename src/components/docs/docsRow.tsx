@@ -1,12 +1,14 @@
 import { HStack, Typography, VStack } from "../elements";
 import { StyledCard } from "../elements/cards/styledCard";
-
+/*
+I've never been a huge fan of compound components but wanted to give them another try.
+*/
 const DocsRow = ({ children }: { children: React.ReactNode }) => {
   return (
     <section className="max-w-[1100px] w-full my-4">
-      <HStack gap={2} horizontal="between" vertical="top">
+      <div className="flex flex-col md:flex-row gap-2 items-start md:justify-between justify-center w-full">
         {children}
-      </HStack>
+      </div>
     </section>
   );
 };
@@ -23,7 +25,12 @@ DocsRow.LeftColumn = ({
   description: string;
 }) => {
   return (
-    <VStack horizontal="leading" vertical="top" gap={2} className="w-[500px]">
+    <VStack
+      horizontal="leading"
+      vertical="top"
+      gap={2}
+      className="max-w-[500px]"
+    >
       <Typography variant="h1" className="font-bold">
         {title}
       </Typography>
@@ -47,12 +54,12 @@ DocsRow.RightColumn = ({
   return styled ? (
     <StyledCard
       childClassName="p-0 overflow-hidden"
-      parentClassName="max-w-[450px] h-min"
+      parentClassName="max-w-[500px] h-min w-full"
     >
       {children}
     </StyledCard>
   ) : (
-    <div className="w-[450px] h-min">{children}</div>
+    <div className="max-w-[500px] w-full h-min">{children}</div>
   );
 };
 // @ts-ignore
@@ -74,7 +81,7 @@ DocsRow.SelectionChip = function <T>({
   return (
     <button
       onClick={() => optionSetter(option)}
-      className={`rounded-full px-3 py-0.5 ${
+      className={`rounded-full px-3 py-1.5 ${
         isSelected
           ? "bg-kioskBlue-100 text-kioskBlue-500 shadow-lightInner"
           : "bg-kioskBlue-50/50 text-kioskTextSecondary"
@@ -101,7 +108,7 @@ DocsRow.SelectionRow = function <T>({
   displayText,
 }: SelectionRowProps<T>) {
   return (
-    <HStack gap={2} horizontal="leading" vertical="center">
+    <HStack gap={2} horizontal="leading" vertical="center" wrap>
       {options.map((option, index) => (
         <DocsRow.SelectionChip
           key={index}

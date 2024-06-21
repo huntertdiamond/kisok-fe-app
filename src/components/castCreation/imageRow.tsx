@@ -27,7 +27,7 @@ function CastImagesContainer({
           <img
             src={URL.createObjectURL(image)}
             alt="Selected file"
-            className=" w-56 rounded-[12px] object-contain group-hover:opacity-50"
+            className=" w-40 rounded-[12px] object-contain group-hover:opacity-50"
           />
         </div>
       ))}

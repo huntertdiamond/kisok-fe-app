@@ -35,7 +35,8 @@ function ChannelSelectionParentContainer({
       <HStack
         horizontal="center"
         vertical="center"
-        className="bg-white z-[100] h-[28px] hover:cursor-pointer w-[30px]"
+        className="bg-white z-[100] h-[35px] hover:cursor-pointer w-[30px]"
+        gap={2}
       >
         <Search size={18} strokeWidth={3} stroke="#A3A3A3" />
         <Separator orientation="vertical" className="h-[20px]" />

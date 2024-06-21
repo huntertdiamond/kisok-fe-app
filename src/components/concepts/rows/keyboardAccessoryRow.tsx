@@ -1,5 +1,5 @@
 import { DocsRow } from "@/components/docs/docsRow";
-import { ConceptRowLeftColumn, ConceptRowRightColumn } from "../boilerplate";
+
 import { MobileKeyboardAccessory } from "../mobileKeyboardAccessory";
 
 function KeyboardAccessoryRow() {

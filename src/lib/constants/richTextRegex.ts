@@ -1,4 +1,5 @@
-const userMentionRegex = /(@[\w.]+)/g;
+const userMentionRegex = /@[\w.]+/g;
+
 const channelRegex = /(?<=\s)(\/[\w-]+)/g;
 
 const tokenRegex = /\$[^\d\s][\w.]*/g;

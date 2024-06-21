@@ -9,14 +9,11 @@ function ChatRow() {
     <DocsRow>
       <DocsRow.LeftColumn
         title="Ephemeral Chat"
-        description={`One of the my favorite parts about Twitter is the instant collection of tweets about live events, like sports or TV shows.
-          I've often hesitated to post event-related content on farcaster, as I didn't want to post it to the main feed.
-          While warpcast has attempted to address this with 'narrowcasting', I don't think thats the solution to the aforementioned problem.
-          As such,  I developed an ephemeral chat tab for each channel. 
-          Channel owners can enable this for live events, fostering meaningful dialogue that they otherwise wouldn't have due to the hesitance to live cast more niche subjects. 
-         To avoid the issue where only kiosk user's could partcipate in the conversation, I created a frame (very much an MVP) that is linked below, and this tab could be represented by a pinned post on other clients`}
+        description={`
+        One of my favorite aspects of Twitter is the immediate discoverability of tweets about live events, like sports or TV shows. I've often hesitated to post event-related content on Farcaster because I didn't want to clutter the main feed. While Warpcast has attempted to address this with 'narrowcasting', I don't think it fully solves the problem.
+        To address this, I developed an ephemeral chat tab for each channel. Channel owners can enable this for live events, encouraging meaningful dialogue that might otherwise be missed due to hesitance in posting niche content. To ensure participation isn't limited to just Kiosk users, I created a frame (very much an MVP) that is linked below. This tab could be represented by a pinned frame on other clients, ensuring client agnostic participation.`}
       >
-        <Link href="https://warpcast.com/dmnd/0xc1ba52be" target="_blank">
+        <Link href="https://warpcast.com/dmnd/0xa23bc150" target="_blank">
           <InlineChip variant="ghost" textToDisplay="MVP Frame" />
         </Link>
       </DocsRow.LeftColumn>

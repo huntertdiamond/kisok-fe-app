@@ -26,14 +26,14 @@ let placeholderMessages = [
     username: "htd",
   },
   {
-    text: "Hey I just funded the third trading card dApp on farcaster, do you want to pay 1 ETH to learn what a bonding curve is?",
+    text: "Hey do you want to read my screenshot essay? Please read it. Its cool because its a screenshot of an essay, so very casual.",
     senderFid: 999,
     pfpUrl:
       "https://i.pinimg.com/736x/9c/a8/7a/9ca87a0d96b510736892b142c9097a10.jpg",
     username: "vc guy",
   },
   {
-    text: "Cool, are you watching the golf?",
+    text: "Is it about golf?",
     senderFid: 240865,
     pfpUrl: "https://i.imgur.com/l6DgqTS.jpg",
     username: "htd",

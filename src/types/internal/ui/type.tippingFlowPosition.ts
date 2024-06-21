@@ -1,8 +1,8 @@
-type TippingFlowPositions =
-  | "selectAToken"
-  | "selectAmount"
-  | "pending"
-  | "confirmed"
-  | "error";
-
-export type { TippingFlowPositions };
+enum TippingFlowPositions {
+  SelectAToken = "selectAToken",
+  SelectAmount = "selectAmount",
+  Pending = "pending",
+  Confirmed = "confirmed",
+  Error = "error",
+}
+export { TippingFlowPositions };

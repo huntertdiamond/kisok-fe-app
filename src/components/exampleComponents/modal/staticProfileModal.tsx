@@ -16,7 +16,7 @@ function StaticProfileModal({
       horizontal="leading"
       vertical="top"
       gap={1}
-      className="overflow-y-hidden"
+      className="overflow-y-hidden "
     >
       <ModalDragHandle className="pb-0 w-full items-center justify-center py-1 " />
 
